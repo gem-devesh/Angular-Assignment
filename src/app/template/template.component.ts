@@ -12,6 +12,9 @@ export class TemplateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let data = localStorage.getItem("templateData");
+    data = JSON.stringify("templateData");
+    console.log(data);
   }
   isSubmitted = false;
   isCourseNameCorrect: Boolean = true;
@@ -49,8 +52,8 @@ export class TemplateComponent implements OnInit {
 
       localStorage.setItem("templateData", JSON.stringify(JSONData));
 
-      let data = localStorage.getItem('templateData');
-      data = JSON.parse('templateData');
+      let data = localStorage.getItem("templateData");
+      data = JSON.stringify("templateData");
 
       console.log(data);
 
