@@ -1,14 +1,49 @@
-<div class="container">
-    <h1>Hero Form</h1>
-    <form>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="form-group">
-            <label for="alterEgo">Alter Ego</label>
-            <input type="text" class="form-control" id="alterEgo">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+<div class="row">
+    <div class="col-lg-3">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-lg-10 form-group">
+                    <label for="courseName">Course Name</label>
+                    <input type="text" id="courseName" class="form-control" name="courseName" ngModel required>
+                    <div *ngIf="this.isCourseNameCorrect && this.isSubmit" class=" alert alert-danger">
+                        <div *ngIf="this.isCourseNameCorrect">
+                            Course Name is Incorrect.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 form-group">
+                    <label for="courseDesc">Course Description</label>
+                    <input type="text" id="courseDesc" class="form-control" name="courseDesc" ngModel required>
+                    <div *ngIf="this.isCourseDescCorrect && this.isSubmit" class=" alert alert-danger">
+                        <div *ngIf="this.isCourseDescCorrect">
+                            Course Description is Incorrect.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 form-group">
+                    <label for="courseAmount">Course Amount</label>
+                    <input type="number" id="courseAmount" class="form-control" name="courseAmount" ngModel required>
+                    <div *ngIf="this.isCourseAmountCorrect && this.isSubmit" class=" alert alert-danger">
+                        <div *ngIf="this.isCourseAmountCorrect">
+                            Course Amount is Incorrect.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10">
+                    <button class="btn btn-success" type="submit">Add</button>
+                    <button class="btn btn-danger" type="button">Delete</button>
+                    <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngIf="this.isSubmitted" class=" alert alert-success">
+                    <div *ngIf="this.isSubmitted">
+                        Submitted Successfully.
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
